@@ -1,11 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import {
-  motion,
-  useInView,
-  type Variants,
-} from "framer-motion";
+import { motion, useInView, type Variants } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
@@ -44,7 +40,7 @@ const itemVariants: Variants = {
 };
 
 const STOP_X = [100, 300, 500, 700, 900, 1100];
-const STOP_Y = [155, 125, 98,  72,  48,  25 ];
+const STOP_Y = [155, 125, 98, 72, 48, 25];
 
 const CURVE = `
   M ${STOP_X[0]} ${STOP_Y[0]}
@@ -71,39 +67,59 @@ function CornerDecoration() {
       >
         {/* Outer arc */}
         <circle
-          cx="420" cy="420" r="300"
-          stroke="#1462FF" strokeOpacity="0.055" strokeWidth="1"
+          cx="420"
+          cy="420"
+          r="300"
+          stroke="#1462FF"
+          strokeOpacity="0.055"
+          strokeWidth="1"
           fill="none"
         />
         {/* Mid arc */}
         <circle
-          cx="420" cy="420" r="220"
-          stroke="#3ABEF9" strokeOpacity="0.07" strokeWidth="1"
+          cx="420"
+          cy="420"
+          r="220"
+          stroke="#3ABEF9"
+          strokeOpacity="0.07"
+          strokeWidth="1"
           fill="none"
         />
         {/* Inner arc */}
         <circle
-          cx="420" cy="420" r="140"
-          stroke="#1462FF" strokeOpacity="0.09" strokeWidth="1"
+          cx="420"
+          cy="420"
+          r="140"
+          stroke="#1462FF"
+          strokeOpacity="0.09"
+          strokeWidth="1"
           fill="none"
         />
         {/* Innermost filled arc */}
         <circle
-          cx="420" cy="420" r="70"
-          stroke="#3ABEF9" strokeOpacity="0.12" strokeWidth="1.5"
-          fill="#1462FF" fillOpacity="0.025"
+          cx="420"
+          cy="420"
+          r="70"
+          stroke="#3ABEF9"
+          strokeOpacity="0.12"
+          strokeWidth="1.5"
+          fill="#1462FF"
+          fillOpacity="0.025"
         />
         {/* Radial spokes */}
         {[210, 225, 240, 255, 270, 285, 300].map((deg, i) => {
           const rad = (deg * Math.PI) / 180;
-          const x1  = 420 + 70  * Math.cos(rad);
-          const y1  = 420 + 70  * Math.sin(rad);
-          const x2  = 420 + 300 * Math.cos(rad);
-          const y2  = 420 + 300 * Math.sin(rad);
+          const x1 = 420 + 70 * Math.cos(rad);
+          const y1 = 420 + 70 * Math.sin(rad);
+          const x2 = 420 + 300 * Math.cos(rad);
+          const y2 = 420 + 300 * Math.sin(rad);
           return (
             <line
               key={i}
-              x1={x1} y1={y1} x2={x2} y2={y2}
+              x1={x1}
+              y1={y1}
+              x2={x2}
+              y2={y2}
               stroke="#1462FF"
               strokeOpacity={0.04 - i * 0.004}
               strokeWidth="1"
@@ -111,10 +127,7 @@ function CornerDecoration() {
           );
         })}
         {/* Small accent dot */}
-        <circle
-          cx="420" cy="420" r="5"
-          fill="#1462FF" fillOpacity="0.25"
-        />
+        <circle cx="420" cy="420" r="5" fill="#1462FF" fillOpacity="0.25" />
       </svg>
     </div>
   );
@@ -145,7 +158,7 @@ function TopLeftAccent() {
               fill="#1462FF"
               fillOpacity={0.08 - (row + col) * 0.006}
             />
-          ))
+          )),
         )}
       </svg>
     </div>
@@ -197,7 +210,11 @@ function MobileLayout() {
                   className="inline-flex items-center gap-1 mt-2.5 text-[0.8125rem] font-semibold font-sora text-brand-blue group"
                 >
                   {item.linkLabel}
-                  <ArrowRight size={12} className="transition-transform duration-150 group-hover:translate-x-0.5" aria-hidden="true" />
+                  <ArrowRight
+                    size={12}
+                    className="transition-transform duration-150 group-hover:translate-x-0.5"
+                    aria-hidden="true"
+                  />
                 </a>
               )}
             </div>
@@ -210,10 +227,13 @@ function MobileLayout() {
 
 /* ── Main export ── */
 export function Journey() {
-  const sectionRef     = useRef<HTMLElement>(null);
-  const timelineRef    = useRef<HTMLDivElement>(null);
-  const inView         = useInView(sectionRef, { once: true, margin: "-80px" });
-  const timelineInView = useInView(timelineRef, { once: true, margin: "-60px" });
+  const sectionRef = useRef<HTMLElement>(null);
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(sectionRef, { once: true, margin: "-80px" });
+  const timelineInView = useInView(timelineRef, {
+    once: true,
+    margin: "-60px",
+  });
 
   return (
     <section
@@ -241,10 +261,8 @@ export function Journey() {
       />
 
       <div className="relative section-padding max-w-[1440px] mx-auto">
-
         {/* ── Header ── */}
         <div className="max-w-[760px] mx-auto text-center mb-16 md:mb-20">
-
           <motion.div
             custom={0}
             variants={fadeUp}
@@ -252,11 +270,17 @@ export function Journey() {
             animate={inView ? "visible" : "hidden"}
             className="flex items-center justify-center gap-3 mb-5"
           >
-            <div className="h-px w-8 bg-gradient-to-r from-transparent to-brand-blue/30" aria-hidden="true" />
+            <div
+              className="h-px w-8 bg-gradient-to-r from-transparent to-brand-blue/30"
+              aria-hidden="true"
+            />
             <span className="text-[10.5px] font-bold font-spotnik tracking-[0.22em] uppercase text-brand-blue/65">
               {JOURNEY_EYEBROW}
             </span>
-            <div className="h-px w-8 bg-gradient-to-l from-transparent to-brand-blue/30" aria-hidden="true" />
+            <div
+              className="h-px w-8 bg-gradient-to-l from-transparent to-brand-blue/30"
+              aria-hidden="true"
+            />
           </motion.div>
 
           <motion.h2
@@ -300,7 +324,6 @@ export function Journey() {
         {/* ── Desktop timeline ── */}
         <div ref={timelineRef} className="hidden lg:block mb-14">
           <div className="relative">
-
             {/* SVG curve layer */}
             <div
               className="absolute left-0 right-0 pointer-events-none"
@@ -314,12 +337,12 @@ export function Journey() {
               >
                 <defs>
                   <linearGradient id="ghostGrad" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%"   stopColor="#1462FF" stopOpacity="0.2" />
-                    <stop offset="50%"  stopColor="#3ABEF9" stopOpacity="0.3" />
+                    <stop offset="0%" stopColor="#1462FF" stopOpacity="0.2" />
+                    <stop offset="50%" stopColor="#3ABEF9" stopOpacity="0.3" />
                     <stop offset="100%" stopColor="#1462FF" stopOpacity="0.2" />
                   </linearGradient>
                   <linearGradient id="drawnGrad" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%"   stopColor="#1462FF" />
+                    <stop offset="0%" stopColor="#1462FF" />
                     <stop offset="100%" stopColor="#3ABEF9" />
                   </linearGradient>
                 </defs>
@@ -375,10 +398,14 @@ export function Journey() {
                         "bg-white border border-brand-blue/15",
                         "shadow-[0_4px_20px_rgba(20,98,255,0.08)]",
                         "transition-all duration-300",
-                        "hover:border-brand-blue/40 hover:shadow-[0_6px_28px_rgba(20,98,255,0.16)] hover:-translate-y-1"
+                        "hover:border-brand-blue/40 hover:shadow-[0_6px_28px_rgba(20,98,255,0.16)] hover:-translate-y-1",
                       )}
                     >
-                      <item.icon size={22} className="text-brand-blue" strokeWidth={1.5} />
+                      <item.icon
+                        size={22}
+                        className="text-brand-blue"
+                        strokeWidth={1.5}
+                      />
                     </div>
 
                     {/* Connector */}
@@ -398,21 +425,28 @@ export function Journey() {
                       <div className="w-1.5 h-1.5 rounded-full bg-brand-blue" />
                     </motion.div>
 
-                    {/* Label + title only */}
+                    {/* Label + title + description */}
                     <div className="w-full mt-6 text-left px-1">
                       <p className="text-[10px] font-bold font-spotnik tracking-[0.18em] uppercase text-brand-blue mb-2">
                         {item.label}
                       </p>
-                      <h3 className="font-spotnik font-bold text-brand-navy text-[0.9375rem] leading-snug">
+                      <h3 className="font-spotnik font-bold text-brand-navy text-[0.9375rem] leading-snug mb-2.5">
                         {item.title}
                       </h3>
+                      <p className="font-sora text-brand-navy/50 text-[0.75rem] leading-relaxed mb-3">
+                        {item.description}
+                      </p>
                       {item.linkLabel && item.linkHref && (
                         <a
                           href={item.linkHref}
-                          className="inline-flex items-center gap-1 mt-3 text-[0.78rem] font-semibold font-sora text-brand-blue hover:text-brand-picton transition-colors group"
+                          className="inline-flex items-center gap-1 text-[0.75rem] font-semibold font-sora text-brand-blue hover:text-brand-picton transition-colors group"
                         >
                           {item.linkLabel}
-                          <ArrowRight size={11} className="transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                          <ArrowRight
+                            size={11}
+                            className="transition-transform group-hover:translate-x-0.5"
+                            aria-hidden="true"
+                          />
                         </a>
                       )}
                     </div>
@@ -453,7 +487,11 @@ export function Journey() {
               className="shrink-0 w-14 h-14 rounded-2xl bg-brand-blue flex items-center justify-center shadow-[0_6px_20px_rgba(20,98,255,0.28)]"
               aria-hidden="true"
             >
-              <JOURNEY_CALLOUT.icon size={24} className="text-white" strokeWidth={1.75} />
+              <JOURNEY_CALLOUT.icon
+                size={24}
+                className="text-white"
+                strokeWidth={1.75}
+              />
             </div>
             <p
               className="font-sora text-brand-navy/65 leading-relaxed"
@@ -467,7 +505,6 @@ export function Journey() {
             </p>
           </div>
         </motion.div>
-
       </div>
     </section>
   );

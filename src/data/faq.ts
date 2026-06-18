@@ -32,7 +32,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     number: "01",
     question: "Is Sift Academy a course?",
     answer:
-      "No. Sift Academy is a membership community focused on continuous professional growth. You get live sessions, resources, mentorship, and community — not a one-time course.",
+      "No. Sift Academy is a membership community focused on continuous professional growth. You get live sessions, resources, mentorship, and community, not a one-time course.",
   },
   {
     number: "02",
@@ -56,7 +56,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     number: "05",
     question: "How do milestone rewards work?",
     answer:
-      "Milestones are unlocked automatically through continuous membership. The longer you stay, the more you unlock — from reviews and sessions to job board access and community spotlights.",
+      "Milestones are unlocked automatically through continuous membership. The longer you stay, the more you unlock, from reviews and sessions to job board access and community spotlights.",
   },
 ];
 

@@ -28,7 +28,7 @@ export const JOURNEY_SUBHEADLINE = {
 };
 
 export const JOURNEY_BODY =
-  "Every month you stay, you unlock something real. Not content to consume but opportunities that build your presence, sharpen your profile, and move your career forward.";
+  "Every month you remain a member, you unlock practical opportunities that help you become more visible, more confident, and more prepared for the next stage of your career.";
 
 export interface JourneyMonth {
   month: string;
@@ -44,7 +44,7 @@ export const JOURNEY_MONTHS: JourneyMonth[] = [
   {
     month: "01",
     label: "Month 1",
-    title: "Community Access",
+    title: "Full community access",
     description:
       "Full access from day one. Live sessions, monthly challenges, resource packs, corporate culture Q&A, and the member prize draw.",
     icon: Users,
@@ -62,18 +62,18 @@ export const JOURNEY_MONTHS: JourneyMonth[] = [
   {
     month: "03",
     label: "Month 3",
-    title: "Professional Headshot Session",
-    description:
-      "A fully guided headshot session so your profile photo matches the professional you are becoming. First impressions done right.",
-    icon: Camera,
-  },
-  {
-    month: "04",
-    label: "Month 4",
     title: "CV and Personal Brand Audit",
     description:
       "A full review of your CV and professional presence. You receive a structured written report with prioritised changes to make.",
     icon: FileText,
+  },
+  {
+    month: "04",
+    label: "Month 4",
+    title: "Professional Headshot Session",
+    description:
+      "A fully guided headshot session so your profile photo matches the professional you are becoming. First impressions done right.",
+    icon: Camera,
   },
   {
     month: "05",
@@ -86,9 +86,9 @@ export const JOURNEY_MONTHS: JourneyMonth[] = [
   {
     month: "06",
     label: "Month 6",
-    title: "Community Spotlight",
+    title: "Sift job board + Opportunity Access",
     description:
-      "Your work, your story, your name in front of the full Sift community and network. Visibility at the moment you are most ready for it.",
+      "Access to Sift's curated job board — verified roles, internships, and opportunities shared directly with the community",
     icon: Star,
   },
 ];
