@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 /** The eyebrow label above the main headline */
-export const HERO_EYEBROW = "Learn. Grow. Get Ahead.";
+export const HERO_EYEBROW = "Get Seen. Get In. Get Ahead." as const;
 
 /**
  * The main headline, split into three parts.

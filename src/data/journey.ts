@@ -46,7 +46,7 @@ export const JOURNEY_MONTHS: JourneyMonth[] = [
     label: "Month 1",
     title: "Full community access",
     description:
-      "Full access from day one. Live sessions, monthly challenges, resource packs, corporate culture Q&A, and the member prize draw.",
+      "You're in. Live sessions, monthly challenges, resource packs, corporate culture Q&A, and the prize draw. The journey starts here.",
     icon: Users,
     linkLabel: "Start here.",
     linkHref: "#membership",
@@ -56,7 +56,7 @@ export const JOURNEY_MONTHS: JourneyMonth[] = [
     label: "Month 2",
     title: "LinkedIn Profile Review",
     description:
-      "A real person reviews your LinkedIn headline, about section, and experience, then delivers specific, actionable written feedback.",
+      "A real person reviews your LinkedIn headline, about section, experience, and gives specific, actionable written feedback",
     icon: Link2,
   },
   {
@@ -64,7 +64,7 @@ export const JOURNEY_MONTHS: JourneyMonth[] = [
     label: "Month 3",
     title: "CV and Personal Brand Audit",
     description:
-      "A full review of your CV and professional presence. You receive a structured written report with prioritised changes to make.",
+      "Full review of your CV and overall professional presence. A structured written report with specific changes to make.",
     icon: FileText,
   },
   {
@@ -72,7 +72,7 @@ export const JOURNEY_MONTHS: JourneyMonth[] = [
     label: "Month 4",
     title: "Professional Headshot Session",
     description:
-      "A fully guided headshot session so your profile photo matches the professional you are becoming. First impressions done right.",
+      "Complimentary Personal brand asset(A professionally written personal bio + a header image)",
     icon: Camera,
   },
   {
@@ -80,7 +80,7 @@ export const JOURNEY_MONTHS: JourneyMonth[] = [
     label: "Month 5",
     title: "1-on-1 Mentorship Session",
     description:
-      "One hour with a senior professional focused entirely on your career direction. Honest guidance from someone who has been where you are going.",
+      "A one-hour session with a senior professional guiding you on your career. Visibility and guidance in the same month.",
     icon: UserCheck,
   },
   {
@@ -88,7 +88,7 @@ export const JOURNEY_MONTHS: JourneyMonth[] = [
     label: "Month 6",
     title: "Sift job board + Opportunity Access",
     description:
-      "Access to Sift's curated job board — verified roles, internships, and opportunities shared directly with the community",
+      "Access to Sift's curated job board: verified roles, internships, and opportunities shared directly with the community",
     icon: Star,
   },
 ];
