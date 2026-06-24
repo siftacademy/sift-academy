@@ -18,7 +18,7 @@ export const CTA_BODY =
 
 export const CTA_BUTTONS = {
   primary: { label: "Become A Member", href: "#membership" },
-  secondary: { label: "Join The Waitlist", href: "#waitlist" },
+  secondary: { label: "Join The Waitlist", href: "https://forms.gle/jVXRCyckeaCxgpkeA" },
 } as const;
 
 export interface CTAFeature {

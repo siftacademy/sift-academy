@@ -35,7 +35,7 @@ export const HERO_BODY = [
 /** Primary and secondary CTAs */
 export const HERO_CTAS = {
   primary: { label: "Become A Member", href: "#membership" },
-  secondary: { label: "Join The Waitlist", href: "#waitlist" },
+  secondary: { label: "Join The Waitlist", href: "https://forms.gle/jVXRCyckeaCxgpkeA" },
 } as const;
 
 /** Social proof row below CTAs */

@@ -23,7 +23,7 @@ export const FOOTER_NAV = [
     links: [
       { label: "Testimonials",  href: "#testimonials" },
       { label: "FAQ",           href: "#faq"          },
-      { label: "Join Waitlist", href: "#waitlist"     },
+      { label: "Join Waitlist", href: "https://forms.gle/jVXRCyckeaCxgpkeA"     },
     ],
   },
   {
