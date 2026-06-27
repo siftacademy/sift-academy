@@ -10,11 +10,6 @@ import { Pricing } from "@/components/sections/Pricing";
 
 export default function HomePage() {
   return (
-    // <main>
-    //   <Navbar />
-    //   <Hero />
-
-    // </main>
     <>
       <Navbar />
       <main>

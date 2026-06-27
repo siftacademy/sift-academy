@@ -6,7 +6,7 @@
 
 import { User, Crown, CheckCircle2, Shield, type LucideIcon } from "lucide-react";
 
-export const PRICING_EYEBROW = "Membership Pricing";
+export const PRICING_EYEBROW = "Section 5 — Membership Pricing";
 
 export const PRICING_HEADLINE = {
   partOne: "One Membership.",
@@ -14,7 +14,7 @@ export const PRICING_HEADLINE = {
 };
 
 export const PRICING_BODY =
-  "Everything you need to grow: live sessions, expert resources, a supportive community, and rewards that celebrate your progress.";
+  "Everything you need to grow — live sessions, expert resources, a supportive community, and rewards that celebrate your progress.";
 
 export interface PricingFeature {
   text: string;
@@ -33,6 +33,7 @@ export interface PricingPlan {
   cta: string;
   ctaHref: string;
   featured: boolean;
+  disabled?: boolean;
 }
 
 export const PRICING_PLANS: PricingPlan[] = [
@@ -51,9 +52,10 @@ export const PRICING_PLANS: PricingPlan[] = [
       { text: "Monthly prize draws" },
       { text: "Milestone rewards" },
     ],
-    cta: "Choose Core Membership",
-    ctaHref: "#join",
+    cta: "Coming Soon",
+    ctaHref: "#",
     featured: false,
+    disabled: true,
   },
   {
     id: "founding",
@@ -73,8 +75,9 @@ export const PRICING_PLANS: PricingPlan[] = [
       { text: "Milestone rewards", bold: true },
     ],
     cta: "Become A Founding Member",
-    ctaHref: "#join",
+    ctaHref: "https://flutterwave.com/pay/1vr94oitdmtb",
     featured: true,
+    disabled: false,
   },
 ];
 
@@ -92,6 +95,6 @@ export const PRICING_TRUST = [
 ];
 
 export const PRICING_CALLOUT = {
-  text: "SIFT is more than a membership, it's your competitive edge.",
+  text: "SIFT is more than a membership — it's your competitive edge.",
   highlight: "Invest in your growth. Elevate your future.",
 };

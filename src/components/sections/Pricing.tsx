@@ -46,6 +46,7 @@ function CoreCard({ plan }: { plan: PricingPlan }) {
         border: "1px solid rgba(20,98,255,0.1)",
         boxShadow:
           "0 4px 24px rgba(20,98,255,0.06), inset 0 1px 0 rgba(255,255,255,1)",
+        opacity: plan.disabled ? 0.6 : 1,
       }}
     >
       {/* Icon */}
@@ -105,31 +106,45 @@ function CoreCard({ plan }: { plan: PricingPlan }) {
 
       {/* CTA */}
       <div className="mt-auto">
-        <a
-          href={plan.ctaHref}
-          className={cn(
-            "flex items-center justify-center w-full",
-            "px-6 py-3.5 rounded-full",
-            "font-spotnik font-semibold text-[0.875rem] tracking-wide",
-            "text-brand-blue",
-            "transition-all duration-200",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue",
-          )}
-          style={{
-            border: "1.5px solid rgba(20,98,255,0.25)",
-            background: "transparent",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = "rgba(20,98,255,0.06)";
-            e.currentTarget.style.borderColor = "rgba(20,98,255,0.5)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = "transparent";
-            e.currentTarget.style.borderColor = "rgba(20,98,255,0.25)";
-          }}
-        >
-          {plan.cta}
-        </a>
+        {plan.disabled ? (
+          <div
+            className="flex items-center justify-center w-full px-6 py-3.5 rounded-full font-spotnik font-semibold text-[0.875rem] tracking-wide text-brand-navy/35 cursor-not-allowed"
+            style={{
+              border: "1.5px solid rgba(15,12,74,0.1)",
+              background: "rgba(15,12,74,0.03)",
+            }}
+            aria-disabled="true"
+            role="button"
+          >
+            {plan.cta}
+          </div>
+        ) : (
+          <a
+            href={plan.ctaHref}
+            className={cn(
+              "flex items-center justify-center w-full",
+              "px-6 py-3.5 rounded-full",
+              "font-spotnik font-semibold text-[0.875rem] tracking-wide",
+              "text-brand-blue",
+              "transition-all duration-200",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
+            )}
+            style={{
+              border: "1.5px solid rgba(20,98,255,0.25)",
+              background: "transparent",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "rgba(20,98,255,0.06)";
+              e.currentTarget.style.borderColor = "rgba(20,98,255,0.5)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "transparent";
+              e.currentTarget.style.borderColor = "rgba(20,98,255,0.25)";
+            }}
+          >
+            {plan.cta}
+          </a>
+        )}
       </div>
     </motion.div>
   );
@@ -267,7 +282,7 @@ function FoundingCard({ plan }: { plan: PricingPlan }) {
               <span
                 className={cn(
                   "font-sora text-[0.8375rem]",
-                  f.bold ? "font-semibold text-white/90" : "text-white/65",
+                  f.bold ? "font-semibold text-white/90" : "text-white/65"
                 )}
               >
                 {f.text}
@@ -277,16 +292,18 @@ function FoundingCard({ plan }: { plan: PricingPlan }) {
         </ul>
       </div>
 
-      {/* CTA */}
+      {/* CTA — links to Flutterwave checkout */}
       <a
         href={plan.ctaHref}
+        target="_blank"
+        rel="noopener noreferrer"
         className={cn(
           "flex items-center justify-center gap-2 w-full",
           "px-6 py-4 rounded-xl",
           "font-spotnik font-bold text-[0.9rem] tracking-wide text-white",
           "transition-all duration-200",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-picton focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy",
-          "hover:opacity-90 active:scale-[0.98]",
+          "hover:opacity-90 active:scale-[0.98]"
         )}
         style={{
           background: "linear-gradient(135deg, #1462FF 0%, #3ABEF9 100%)",
@@ -365,12 +382,13 @@ export function Pricing() {
                 fill="#1462FF"
                 fillOpacity={0.15 - (row + col) * 0.01}
               />
-            )),
+            ))
           )}
         </svg>
       </div>
 
       <div className="relative section-padding max-w-[1440px] mx-auto">
+
         {/* ── Header ── */}
         <div className="max-w-[640px] mx-auto text-center mb-14 md:mb-16">
           <motion.div
@@ -424,7 +442,7 @@ export function Pricing() {
               <FoundingCard key={plan.id} plan={plan} />
             ) : (
               <CoreCard key={plan.id} plan={plan} />
-            ),
+            )
           )}
         </div>
 
@@ -447,11 +465,7 @@ export function Pricing() {
                 style={{ background: "rgba(20,98,255,0.08)" }}
                 aria-hidden="true"
               >
-                <item.icon
-                  size={15}
-                  className="text-brand-blue"
-                  strokeWidth={1.75}
-                />
+                <item.icon size={15} className="text-brand-blue" strokeWidth={1.75} />
               </div>
               <div>
                 <p className="font-spotnik font-bold text-brand-navy text-[0.8125rem]">
@@ -514,7 +528,7 @@ export function Pricing() {
               </svg>
             </div>
 
-            {/* Text — broken into two lines for breathing room */}
+            {/* Text */}
             <div className="flex flex-col items-center text-center sm:text-left">
               <p
                 className="font-sora text-brand-navy/55 leading-relaxed mb-1"
@@ -531,6 +545,7 @@ export function Pricing() {
             </div>
           </div>
         </motion.div>
+
       </div>
     </section>
   );
