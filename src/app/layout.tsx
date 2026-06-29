@@ -1,50 +1,75 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { SITE_CONFIG, absoluteUrl } from "@/lib/seo-config";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { ORGANIZATION_SCHEMA } from "@/data/structured-data";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: "Sift Academy – Build A Career People Notice",
-    template: "%s | Sift Academy",
+    default: `${SITE_CONFIG.name} – Build A Career People Notice`,
+    template: `%s | ${SITE_CONFIG.name}`,
   },
-  description:
-    "Sift Academy is a professional growth membership for ambitious students and early-career professionals. Build the skills, confidence, visibility, and network needed to get ahead.",
-  keywords: [
-    "career development",
-    "professional training",
-    "workplace skills",
-    "early career",
-    "career growth",
-    "professional membership",
-  ],
-  authors: [{ name: "Sift Academy" }],
+  description: SITE_CONFIG.description,
+  keywords: [...SITE_CONFIG.keywords],
+  authors: [{ name: SITE_CONFIG.name, url: SITE_CONFIG.url }],
+  creator: SITE_CONFIG.name,
+  publisher: SITE_CONFIG.name,
+
+  alternates: {
+    canonical: "/",
+  },
+
   openGraph: {
     type: "website",
-    locale: "en_US",
-    url: "https://siftacademy.com",
-    siteName: "Sift Academy",
-    title: "Sift Academy – Build A Career People Notice",
-    description:
-      "Join Sift Academy and build the skills, confidence, visibility, and network needed to get ahead in your career.",
+    locale: SITE_CONFIG.locale,
+    url: SITE_CONFIG.url,
+    siteName: SITE_CONFIG.name,
+    title: `${SITE_CONFIG.name} – Build A Career People Notice`,
+    description: SITE_CONFIG.description,
     images: [
       {
-        url: "/images/sift-logo.svg",
+        url: absoluteUrl(SITE_CONFIG.ogImage),
         width: 1200,
         height: 630,
-        alt: "Sift Academy",
+        alt: SITE_CONFIG.name,
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "Sift Academy – Build A Career People Notice",
-    description:
-      "Professional growth membership for ambitious students and early-career professionals.",
-    images: ["/images/sift-logo.svg"],
+    site: SITE_CONFIG.twitterHandle,
+    creator: SITE_CONFIG.twitterHandle,
+    title: `${SITE_CONFIG.name} – Build A Career People Notice`,
+    description: SITE_CONFIG.description,
+    images: [absoluteUrl(SITE_CONFIG.ogImage)],
   },
+
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
+
+  /*
+    Hints AI crawlers (GPTBot, ClaudeBot, PerplexityBot, etc.) generally
+    respect the same robots directives as Googlebot, gated through robots.txt
+    rather than meta tags. See public robots.ts for the actual gating.
+  */
+
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+
+  manifest: "/site.webmanifest",
 };
 
 export const viewport: Viewport = {
@@ -61,6 +86,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className="font-sora antialiased">
+        {/* Site-wide structured data — present on every page */}
+        <JsonLd data={ORGANIZATION_SCHEMA} />
         {children}
       </body>
     </html>
