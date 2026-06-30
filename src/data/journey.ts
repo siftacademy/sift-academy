@@ -70,9 +70,9 @@ export const JOURNEY_MONTHS: JourneyMonth[] = [
   {
     month: "04",
     label: "Month 4",
-    title: "Professional Headshot Session",
+    title: "Complimentary Personal brand Asset",
     description:
-      "Complimentary Personal brand asset(A professionally written personal bio + a header image)",
+      "Work with our team to get a professionally written personal bio + a header image for yourself",
     icon: Camera,
   },
   {
