@@ -10,6 +10,7 @@ import {
   TrendingUp,
   Users,
   Trophy,
+  Sparkles,
   type LucideIcon,
 } from "lucide-react";
 
@@ -26,21 +27,36 @@ export const HERO_HEADLINE = {
   partThree: "Notice.",
 } as const;
 
-/** Two body paragraphs below the headline */
+/**
+ * Body copy below the headline.
+ * Single paragraph only — kept tight and focused.
+ */
 export const HERO_BODY = [
   "Sift Academy is a professional growth membership designed for ambitious students and early-career professionals who want to build the skills, confidence, visibility, and network needed to get ahead.",
-  "Through live learning, practical resources, community support, and milestone rewards, Sift helps you grow consistently and intentionally.",
 ];
+
+/**
+ * Launch notice badge — sits near the CTAs.
+ * A quiet, professional way to signal the community start date
+ * without the urgency-bait feel of a countdown timer.
+ */
+export const HERO_LAUNCH_NOTICE = {
+  icon: Sparkles,
+  text: "Community activity begins August 2026",
+} as const;
 
 /** Primary and secondary CTAs */
 export const HERO_CTAS = {
   primary: { label: "Become A Member", href: "#membership" },
-  secondary: { label: "Join The Waitlist", href: "https://forms.gle/jVXRCyckeaCxgpkeA" },
+  secondary: {
+    label: "Join The Waitlist",
+    href: "https://forms.gle/jVXRCyckeaCxgpkeA",
+    external: true,
+  },
 } as const;
 
 /** Social proof row below CTAs */
 export const HERO_SOCIAL_PROOF = {
-  // Paths to avatar images. Replace with real member photos.
   avatars: [
     "/images/avatars/avatar-1.jpg",
     "/images/avatars/avatar-2.jpg",
@@ -84,7 +100,6 @@ export interface MilestoneCardData {
   icon: LucideIcon;
   title: string;
   description: string;
-  /** Controls stagger delay and position. 0-indexed. */
   index: number;
 }
 

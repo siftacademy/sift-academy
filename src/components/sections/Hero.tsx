@@ -11,6 +11,7 @@ import {
   HERO_EYEBROW,
   HERO_HEADLINE,
   HERO_BODY,
+  HERO_LAUNCH_NOTICE,
   HERO_CTAS,
   HERO_SOCIAL_PROOF,
   HERO_FEATURES,
@@ -77,10 +78,6 @@ export function Hero() {
             "2xl:grid-cols-[1fr_520px]",
             "gap-10 lg:gap-12 xl:gap-16",
             "items-start",
-            /*
-              Top padding clears the fixed navbar (h-16 mobile / h-20 desktop)
-              plus breathing room. Bottom padding generous on all sizes.
-            */
             "pt-[calc(64px+36px)] md:pt-[calc(80px+48px)]",
             "pb-16 md:pb-20 lg:pb-24"
           )}
@@ -181,8 +178,8 @@ export function Hero() {
               </motion.span>
             </h1>
 
-            {/* Body */}
-            <div className="space-y-3 mb-7 md:mb-8">
+            {/* Body — single paragraph only */}
+            <div className="mb-6">
               {HERO_BODY.map((p, i) => (
                 <motion.p
                   key={i}
@@ -198,6 +195,32 @@ export function Hero() {
               ))}
             </div>
 
+            {/* Launch notice badge */}
+            <motion.div
+              custom={0.46}
+              variants={textVariants}
+              initial="hidden"
+              animate="visible"
+              className="flex justify-center md:justify-start mb-7 md:mb-8"
+            >
+              <span
+                className={cn(
+                  "inline-flex items-center gap-2",
+                  "px-3.5 py-2 rounded-full",
+                  "border border-brand-blue/20",
+                  "bg-brand-blue/[0.06]",
+                  "text-brand-blue text-[12px] font-sora font-semibold"
+                )}
+              >
+                <HERO_LAUNCH_NOTICE.icon
+                  size={13}
+                  className="shrink-0"
+                  aria-hidden="true"
+                />
+                {HERO_LAUNCH_NOTICE.text}
+              </span>
+            </motion.div>
+
             {/* CTAs */}
             <motion.div
               custom={0.54}
@@ -209,13 +232,20 @@ export function Hero() {
               <Button href={HERO_CTAS.primary.href} size="lg" showArrow>
                 {HERO_CTAS.primary.label}
               </Button>
-              <Button href={HERO_CTAS.secondary.href} variant="secondary" size="lg">
+
+              {/* Join the Waitlist — opens external form in a new tab */}
+              <Button
+                href={HERO_CTAS.secondary.href}
+                variant="secondary"
+                size="lg"
+                {...(HERO_CTAS.secondary.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+              >
                 {HERO_CTAS.secondary.label}
               </Button>
             </motion.div>
 
-            {/* Social proof — mobile only shows avatars + text, no divider needed */}
-           
             {/* Divider */}
             <motion.div
               custom={0.64}
@@ -336,7 +366,6 @@ export function Hero() {
                 className="object-cover object-top"
                 sizes="(max-width: 1024px) 100vw, 44vw"
               />
-              {/* Lighter blend on mobile — just bottom fade */}
               <div
                 className="absolute inset-0 pointer-events-none"
                 aria-hidden="true"
@@ -346,7 +375,6 @@ export function Hero() {
                 }}
               />
 
-              {/* Active members badge on mobile image */}
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10">
                 <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-white/60 shadow-[0_2px_12px_rgba(15,12,74,0.1)] whitespace-nowrap">
                   <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" aria-hidden="true" />
